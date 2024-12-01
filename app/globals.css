@@ -2,20 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 30 30% 96%;
+    --foreground: 20 14% 4%;
+    --card: 30 30% 96%;
+    --card-foreground: 20 14% 4%;
+    --popover: 30 30% 96%;
+    --popover-foreground: 20 14% 4%;
+    --primary: 24 9% 49%;
+    --primary-foreground: 30 30% 96%;
+    --secondary: 30 15% 86%;
+    --secondary-foreground: 20 14% 4%;
+    --muted: 30 15% 86%;
+    --muted-foreground: 20 14% 4%;
+    --accent: 24 9% 49%;
+    --accent-foreground: 30 30% 96%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 30% 96%;
+    --border: 30 15% 86%;
+    --input: 30 15% 86%;
+    --ring: 24 9% 49%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 30 30% 96%;
+    --card: 20 14% 4%;
+    --card-foreground: 30 30% 96%;
+    --popover: 20 14% 4%;
+    --popover-foreground: 30 30% 96%;
+    --primary: 24 9% 49%;
+    --primary-foreground: 30 30% 96%;
+    --secondary: 30 15% 86%;
+    --secondary-foreground: 20 14% 4%;
+    --muted: 30 15% 86%;
+    --muted-foreground: 30 30% 96%;
+    --accent: 24 9% 49%;
+    --accent-foreground: 30 30% 96%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 30 30% 96%;
+    --border: 30 15% 86%;
+    --input: 30 15% 86%;
+    --ring: 30 30% 96%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.cl-internal-106dzf1 {
+  background-color: #8B7355 !important;
+  color: #3E2723 !important;
+  max-width: 100% !important;
+}
+
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+@layer utilities {
+  .btn-style {
+    @apply bg-beige-500 text-beige-50 hover:bg-beige-700 transition-colors duration-300;
+  }
+  .product-card {
+    @apply bg-beige-100 rounded-lg shadow-md overflow-hidden;
+  }
+  .product-image {
+    @apply  transition-transform duration-300 hover:scale-105;
+  }
 }
