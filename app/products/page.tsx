@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -92,16 +92,16 @@ export default function ProductListing() {
     )
   }
 
-  const handlePriceChange = (type: 'min' | 'max', value: string) => {
-    setPriceRange(prev => ({
-      ...prev,
-      [type]: Number(value)
-    }))
-  }
+  // const handlePriceChange = (type: 'min' | 'max', value: string) => {
+  //   setPriceRange(prev => ({
+  //     ...prev,
+  //     [type]: Number(value)
+  //   }))
+  // }
 
-  const handleSortChange = (value: string) => {
-    setSortBy(value)
-  }
+  // const handleSortChange = (value: string) => {
+  //   setSortBy(value)
+  // }
 
   if (isLoading) {
     return (

@@ -15,8 +15,8 @@ export type ProductTypeCard = {
   _id?: string;
 };
 export function ProductCard  ({ product }: {product : ProductTypeCard})  {
-  const { addToCart } = useCart()
-  const { name, price , categories , image , _id } = product;
+  // const { addToCart } = useCart()
+  const { name } = product;
   // const handleAddToCart = () => {
   //   addToCart({ _id: _id || '', name, price, quantity: 1, imageUrl: imageUrl(image).url()})
   // }

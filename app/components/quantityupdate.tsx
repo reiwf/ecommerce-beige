@@ -85,11 +85,11 @@ export async function updateProductQuantity({
       return v;
     });
 
-    // Update the product in Sanity
-    const result = await client
-      .patch(productId)
-      .set({ variants: updatedVariants })
-      .commit();
+    // // Update the product in Sanity
+    // const result = await client
+    //   .patch(productId)
+    //   .set({ variants: updatedVariants })
+    //   .commit();
 
     return { 
       success: true, 

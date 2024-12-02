@@ -43,7 +43,7 @@ async function Orders() {
 
       {orders.length === 0 ? (
         <div className="text-center">
-          <p className="text-beige-700 mb-4">You haven't placed any orders yet.</p>
+          <p className="text-beige-700 mb-4">Buy something first?</p>
           <Link href="/products">
             <Button>Continue Shopping</Button>
           </Link>

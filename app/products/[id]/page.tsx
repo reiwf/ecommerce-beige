@@ -2,14 +2,14 @@
 
 import { useState, useEffect, use } from 'react'
 import Image from 'next/image'
-import { Star, Truck, ArrowLeft, ArrowBigLeft } from 'lucide-react'
+import { Truck, ArrowLeft, ArrowBigLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useCart } from '@/app/components/cart-context'
 import { client } from '@/sanity/lib/client'
 import { PRODUCT_BY_SLUG_QUERY } from '@/sanity/lib/queries'
 import Link from 'next/link'
-import { Product , Size, ColorVariant } from '@/lib/products'
+import { Product } from '@/lib/products'
 
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {

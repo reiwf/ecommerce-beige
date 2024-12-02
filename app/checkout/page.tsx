@@ -41,7 +41,7 @@ export default function Checkout() {
   const router = useRouter()
   const { isSignedIn, user } = useUser()
   const { toast } = useToast()
-  const { cart, clearCart, getCartTotal } = useCart()
+  const { cart, getCartTotal } = useCart()
   const [total, setTotal] = useState(getCartTotal())
   const [formData, setFormData] = useState({
     firstName: '',
