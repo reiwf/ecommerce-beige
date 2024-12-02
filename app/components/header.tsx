@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ShoppingCart, User, Menu, X, ShoppingBagIcon, ShoppingBag, Shirt, ShirtIcon } from 'lucide-react'
+import { ShoppingCart, Menu, X, ShoppingBag, ShirtIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/app/components/cart-context'
 import { ClerkLoaded, UserButton, useUser } from '@clerk/nextjs'

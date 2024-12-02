@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import { imageUrl } from '@/sanity/lib/imageUrl';
 import { useCart } from '@/app/components/cart-context';
 

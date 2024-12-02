@@ -9,7 +9,7 @@ import Image from 'next/image'
 import { client } from '@/sanity/lib/client'
 import { PRODUCT_BY_ID_QUERY} from '@/sanity/lib/queries'
 import { useToast } from "@/hooks/use-toast"
-import { Product, Size, ColorVariant } from '@/lib/products'
+import {  Size, ColorVariant } from '@/lib/products'
 import { ArrowLeft } from 'lucide-react'
 
 // interface Product {

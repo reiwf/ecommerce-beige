@@ -47,12 +47,12 @@ export async function POST(req: NextRequest) {
 async function createOrderInSanity(session: Stripe.Checkout.Session) {
   const {
     id,
-    amount_total,
-    currency,
+    // amount_total,
+    // currency,
     metadata,
     payment_intent,
     customer,
-    total_details,
+    // total_details,
   } = session;  
 
   // Get orderNumber from metadata m
