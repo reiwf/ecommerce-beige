@@ -1,4 +1,5 @@
 import { client } from "@/sanity/lib/client";
+import { ColorVariant , Size } from "@/lib/products";
 
 interface UpdateQuantityProps {
   productId: string;
@@ -39,7 +40,7 @@ export async function updateProductQuantity({
 
     // Find the variant (if variant is provided) or use the first variant
     const variantToUpdate = variant 
-      ? product.variants.find((v: any) => v.color.toLowerCase() === variant.toLowerCase())
+      ? product.variants.find((v: ColorVariant) => v.color.toLowerCase() === variant.toLowerCase())
       : product.variants[0];
 
     if (!variantToUpdate) {
@@ -47,7 +48,7 @@ export async function updateProductQuantity({
     }
 
     // Find the size in the variant's sizes array
-    const sizeIndex = variantToUpdate.sizes.findIndex((s: any) => 
+    const sizeIndex = variantToUpdate.sizes.findIndex((s: Size) => 
       s.name.toLowerCase() === size.toLowerCase()
     );
 
@@ -66,11 +67,11 @@ export async function updateProductQuantity({
     }
 
     // Create updated variants array
-    const updatedVariants = product.variants.map((v: any) => {
+    const updatedVariants = product.variants.map((v: ColorVariant) => {
       if (v.color === variantToUpdate.color) {
         return {
           ...v,
-          sizes: v.sizes.map((s: any, index: number) => {
+          sizes: v.sizes.map((s: Size, index: number) => {
             if (index === sizeIndex) {
               const newQuantity = Math.max(0, s.quantity - quantity);
               return {

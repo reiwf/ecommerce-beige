@@ -8,24 +8,21 @@ export type ProductTypeCard = {
   name: string;
   price: number;
   categories?: string[];
-  image?: any;
+  image?: string;
   stock?: number;
   slug?: { current: string };
   category?: string;
   _id?: string;
 };
 export function ProductCard  ({ product }: {product : ProductTypeCard})  {
-  // const { addToCart } = useCart()
   const { name } = product;
-  // const handleAddToCart = () => {
-  //   addToCart({ _id: _id || '', name, price, quantity: 1, imageUrl: imageUrl(image).url()})
-  // }
+
 
   return (
     <div className="bg-beige-100 rounded-lg shadow-md overflow-hidden w-full sm:w-auto">
       <Link href={`/products/${product.slug?.current}`}>
         <Image 
-          src={imageUrl(product.image).url()}
+          src={imageUrl(product.image || '').url()}
           alt={product.name || "Product Image"}
           width={200}
           height={200}

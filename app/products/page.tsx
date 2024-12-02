@@ -22,8 +22,8 @@ export default function ProductListing() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [categories, setCategories] = useState<string[]>([])
-  const [priceRange, setPriceRange] = useState({ min: 0, max:999999 })
-  const [sortBy, setSortBy] = useState('featured')
+  const [priceRange] = useState({ min: 0, max:999999 })
+  const [sortBy] = useState('featured')
   const [isLoading, setIsLoading] = useState(true)
 
   const fetchData = async () => {

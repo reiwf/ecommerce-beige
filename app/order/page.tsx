@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Order } from "@/lib/products";
+import { Order , Product } from "@/lib/products";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { PRODUCTS_QUERY } from "@/sanity/lib/queries";
@@ -21,7 +21,7 @@ async function Orders() {
     order.items.map(item => item.productId._ref)
   ))];
   const products = await client.fetch(PRODUCTS_QUERY, { productIds });
-  const productMap = products.reduce((acc: any, product: any) => {
+  const productMap = products.reduce((acc: Record<string, Product>, product: Product) => {
     acc[product._id] = product;
     return acc;
   }, {});
