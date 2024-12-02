@@ -50,7 +50,6 @@ const productType = defineType({
             group: 'product',
             description: 'Value is in smallest fractional unit, ie cents (500 = $5.00)',
             type: 'number',
-            required: true,
         }),
         defineField({
             name: 'currency',
