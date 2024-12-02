@@ -27,11 +27,10 @@ export default function PaymentSuccess() {
 
     handleCartClear();
 
-    // Cleanup function
     return () => {
       isSubscribed = false;
     };
-  }, []); // Empty dependency array since we only want this to run once
+  }, [clearCart, searchParams]);
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -42,7 +41,7 @@ export default function PaymentSuccess() {
         
         <h1 className="text-3xl font-bold mb-4">Thank You for Your Purchase!</h1>
         <p className="text-gray-600 mb-8">
-          Your order has been successfully processed. We'll send you an email with your order details shortly.
+          We&apos;ll send you an email with your order details shortly.
         </p>
 
         <div className="space-y-4">

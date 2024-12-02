@@ -44,7 +44,7 @@ export default function CartPage() {
     for (const item of cart) {
       try {
         const productId = item.product._id;
-        const productData = await client.fetch(PRODUCT_BY_ID_QUERY, { id: productId });
+        const productData = await client.fetch<CartItem>(PRODUCT_BY_ID_QUERY, { id: productId });
         
         if (!productData?.variants) continue;
 
@@ -93,7 +93,7 @@ export default function CartPage() {
   // Add useEffect to validate quantities on mount
   useEffect(() => {
     validateCartQuantities()
-  }, []) // Empty dependency array means this runs once on mount
+  }, [cart, removeFromCart, addToCart, toast])
 
   const updateQuantity = async (item: CartItem, newQuantity: number) => {
     if (newQuantity < 1) return;

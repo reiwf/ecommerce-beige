@@ -1,10 +1,9 @@
 "use client";
 import React from 'react';
-import {ClerkLoaded, SignInButton, UserButton, useUser} from "@clerk/nextjs";
+import {ClerkLoaded, SignInButton, useUser} from "@clerk/nextjs";
 import Link from "next/link";
-import Form from "next/form";
-import {PackageIcon, TrolleyIcon} from "@sanity/icons";
-import {Search, ShoppingBag, User} from "lucide-react";
+import  {TrolleyIcon} from "@sanity/icons";
+import { ShoppingBag, User} from "lucide-react";
 
 const Header = () => {
     const {user}= useUser();
