@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { imageUrl } from '@/sanity/lib/imageUrl';
-import { useCart } from '@/app/components/cart-context';
+// import { useCart } from '@/app/components/cart-context';
 
 export type ProductTypeCard = {
   name: string;

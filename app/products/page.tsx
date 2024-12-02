@@ -92,17 +92,6 @@ export default function ProductListing() {
     )
   }
 
-  // const handlePriceChange = (type: 'min' | 'max', value: string) => {
-  //   setPriceRange(prev => ({
-  //     ...prev,
-  //     [type]: Number(value)
-  //   }))
-  // }
-
-  // const handleSortChange = (value: string) => {
-  //   setSortBy(value)
-  // }
-
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8">

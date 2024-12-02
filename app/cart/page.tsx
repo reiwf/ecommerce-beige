@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { CartItem, useCart } from '@/app/components/cart-context'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -12,35 +12,13 @@ import { useToast } from "@/hooks/use-toast"
 import {  Size, ColorVariant } from '@/lib/products'
 import { ArrowLeft } from 'lucide-react'
 
-// interface Product {
-//   _id: string;
-//   name: string;
-//   price: number;
-//   currency: string;
-//   variants?: ColorVariant[];
-// }
-
-// interface CartItem {
-//   _id: string
-//   name: string
-//   price: number
-//   quantity: number
-//   imageUrl: string
-//   currency: string
-//   options?: {
-//     variant?: string
-//     size?: string
-//   }
-// }
-
-
 export default function CartPage() {
   const { cart, removeFromCart, getCartTotal, addToCart } = useCart()
   const [loading, setLoading] = useState<Record<string, boolean>>({})
   const { toast } = useToast()
 
   // Add this function to check and fix quantities on component mount
-  const validateCartQuantities = async () => {
+  const validateCartQuantities = useCallback(async () => {
     for (const item of cart) {
       try {
         const productId = item.product._id;
@@ -49,7 +27,7 @@ export default function CartPage() {
         if (!productData?.variants) continue;
 
         const variant = productData.variants.find(
-          (v: any) => v.color === item.variants?.[0]?.color
+          (v: ColorVariant) => v.color === item.variants?.[0]?.color
         );
         
         if (!variant) continue;
@@ -88,12 +66,12 @@ export default function CartPage() {
         console.error('Error validating cart quantity:', error);
       }
     }
-  };
+  }, [cart, removeFromCart, addToCart, toast])
 
   // Add useEffect to validate quantities on mount
   useEffect(() => {
     validateCartQuantities()
-  }, [cart, removeFromCart, addToCart, toast])
+  }, [cart, removeFromCart, addToCart, toast, validateCartQuantities])
 
   const updateQuantity = async (item: CartItem, newQuantity: number) => {
     if (newQuantity < 1) return;
