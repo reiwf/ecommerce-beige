@@ -115,7 +115,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       let selectedVariant;
       if (options?.variant) {
         selectedVariant = product.variants?.find(
-          (v: any) => v.color === options.variant
+          (v: ColorVariant) => v.color === options.variant
         );
       }
 

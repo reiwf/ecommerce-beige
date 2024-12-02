@@ -7,7 +7,7 @@ import { imageUrl } from '@/sanity/lib/imageUrl';
 export type ProductTypeCard = {
   name: string;
   price: number;
-  categories?: any;
+  categories?: string[];
   image?: any;
   stock?: number;
   slug?: { current: string };

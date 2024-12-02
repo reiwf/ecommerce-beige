@@ -15,27 +15,6 @@ import { createCheckoutSession, Metadata } from '../api/create-checkout-session/
 import { nanoid } from 'nanoid'
 import { ArrowLeft } from 'lucide-react'
 
-// // Add CartItem type
-// interface CartItem {
-//   _id: string
-//   name: string
-//   price: number
-//   quantity: number
-//   imageUrl: string
-//   currency: string
-//   options?: {
-//     color?: string
-//     size?: string
-//   }
-//   variant?: {
-//     color: string
-//     imageUrl: string
-//     selectedSize?: {
-//       name: string
-//       quantity: number
-//     }
-//   }
-// }
 
 export default function Checkout() {
   const router = useRouter()
@@ -77,7 +56,9 @@ export default function Checkout() {
     }
   }, [cart, router])
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement> | { target: { name: string; value: string } }
+  ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
@@ -131,49 +112,7 @@ export default function Checkout() {
         variant: "destructive",
       })
     }
-  }
-
-  
-    // try {
-    //   const response = await fetch('/api/create-checkout-session', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       items: cart,
-    //       userData: {
-    //         ...formData,
-    //         email: user?.emailAddresses[0]?.emailAddress || formData.email,
-    //         userId: user?.id,
-    //         shippingAddress: {
-    //           firstName: formData.firstName,
-    //           lastName: formData.lastName,
-    //           address: formData.address,
-    //           city: formData.city,
-    //           postalCode: formData.postalCode,
-    //           country: formData.country,
-    //           phoneNumber: formData.phoneNumber,
-    //         }
-    //       },
-    //     }),
-    //   })
-
-    //   if (!response.ok) {
-    //     throw new Error('Network response was not ok')
-    //   }
-
-    //   const { sessionUrl } = await response.json()
-    //   window.location.href = sessionUrl
-    // } catch (error) {
-    //   toast({
-    //     title: "Error",
-    //     description: "Something went wrong. Please try again later.",
-    //     variant: "destructive",
-    //   })
-    //   console.error('Error:', error)
-    // }
-  // }
+  } // }
 
   return (
     <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
@@ -347,7 +286,7 @@ export default function Checkout() {
                     <Select 
                       name="country" 
                       value={formData.country} 
-                      onValueChange={(value) => handleInputChange({ target: { name: 'country', value } } as any)}
+                      onValueChange={(value) => handleInputChange({ target: { name: 'country', value } })}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Select a country" />
