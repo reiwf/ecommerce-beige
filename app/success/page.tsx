@@ -1,13 +1,13 @@
 'use client'
 
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useCart } from '@/app/components/cart-context'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { CheckCircle2 } from 'lucide-react'
 
-export default function PaymentSuccess() {
+function SuccessContent() {
   const searchParams = useSearchParams()
   const { clearCart } = useCart()
 
@@ -55,5 +55,13 @@ export default function PaymentSuccess() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function PaymentSuccess() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
   )
 } 
