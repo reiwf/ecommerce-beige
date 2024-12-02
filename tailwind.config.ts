@@ -51,8 +51,8 @@ module.exports = {
 			foreground: "hsl(var(--card-foreground))",
 		  },
 		  beige: {
-			50: "#fdf8f6",
-			100: "#f2e8e5",
+			50: "#fdfaf6",
+			100: "#f2eadf",
 			200: "#eaddd7",
 			300: "#e0cec7",
 			400: "#d2bab0",

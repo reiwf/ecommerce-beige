@@ -72,7 +72,7 @@ export default function Footer() {
     //       </div> */}
         // </div>
         <div className="mt-8 pt-8 border-t border-beige-200 text-center text-beige-700 py-8 mt-12">
-          © 2023 Beige Boutique. All rights reserved.
+          © 2022 Becky in Japan. All rights reserved.
         </div>
       // </div>
     // </footer>

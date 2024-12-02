@@ -157,7 +157,7 @@ export default function ProductListing() {
                     alt={product.name}
                     width={300}
                     height={300}
-                    className="w-full h-[150px] sm:h-[200px] object-cover product-image"
+                    className="w-full  object-cover product-image"
                   />
                 </Link>                
                 <div className="p-2 sm:p-4">
